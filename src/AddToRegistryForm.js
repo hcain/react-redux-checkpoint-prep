@@ -21,17 +21,19 @@ export default class extends React.Component {
     }
 
     render () {
+        const newName = this.updateItemName;
+        const newPrice = this.updateItemPrice;
         return (
             <form>
                 <div className="form-group">
                     <label>Item name: </label>
-                    <input type="text" id="item-name-field" />
+                    <input type="text" id="item-name-field" onChange={ newName }/>
                 </div>
                 <div className="form-group">
                     <label>Item price: </label>
-                    <input type="text" id="item-price-field" />
+                    <input type="text" id="item-price-field" onChange={ newPrice }/>
                 </div>
-                <button type="submit">Add item to registry</button>
+                <button type="submit" onSubmit={ this.props.onSend(this.state) }>Add item to registry</button>
             </form>
         );
     }
